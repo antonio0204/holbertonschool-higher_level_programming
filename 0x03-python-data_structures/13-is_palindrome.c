@@ -2,41 +2,33 @@
 #include <stdlib.h>
 #include "lists.h"
 
-int is_actual_palin(listint_t **head, listint_t *next);
 /**
-* is_palindrome - checks if a linked list is a palindrome
-* @head: a pointer to a pointer to a linked list
-* Return: return 1 if it is a palindrome
-*/
-
+ * is_palindrome - test if a LL is also a palindrome
+ * @head: begining of list
+ *
+ * Return: 1 for yes, 0 for no or fail
+ */
 int is_palindrome(listint_t **head)
 {
-	listint_t *next;
+	listint_t *seek;
+	int i = 0, j = 0;
+	int arr[4096];
 
-	if (head == NULL)
+
+	if (!head)
 		return (0);
-	if (*head == NULL || (*head)->next == NULL)
+	seek = *head;
+	if (!*head || (*head)->next == NULL)
 		return (1);
-	next = *head;
-	return (is_actual_palin(head, next->next));
-}
 
-/**
-* is_actual_palin - helper function to check if a linked list is a palin
-* @head: a pointer to a pointer to a linked list
-* @next: a pointer to a linked list
-* Return: true if the values are equal
-*/
-
-int is_actual_palin(listint_t **head, listint_t *next)
-{
-	if (next->next != NULL)
-		is_actual_palin(head, next->next);
-	if ((*head)->n == next->n)
+	for (; seek; seek = seek->next, i++)
+		arr[i] = seek->n;
+	for (i--; i > j; i--, j++)
 	{
-		*head = (*head)->next;
-		return (1);
+		if (arr[j] == arr[i])
+			;
+		else
+			return (0);
 	}
-	else
-		return (0);
+	return (1);
 }
