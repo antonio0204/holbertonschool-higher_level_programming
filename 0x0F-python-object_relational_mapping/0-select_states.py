@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """Exercise
 """
-import MySQLdb
-from sys import argv
-
 
 if __name__ == '__main__':
-    """COnect
-    """
+
+    import MySQLdb
+    from sys import argv
+
     db = MySQLdb.connect('192.168.1.8', argv[1], argv[2], argv[3], port=3306)
     cur = db.cursor()
 
