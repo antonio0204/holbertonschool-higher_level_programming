@@ -1,16 +1,18 @@
 #!/usr/bin/python3
-"""Conection MySQLdb"""
-
-if __name__ == '__main__':
-
-    import MySQLdb
+'''
+    run MySQLdb
+'''
+if __name__ == "__main__":
     import sys
+    import MySQLdb
 
-    db = MySQLdb.connect(host='localhost', port=3306,
-                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("""SELECT * FROM states
+                ORDER BY states.id ASC""")
+    for row in c.fetchall():
+        print(row)
 
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
-    row = cur.fetchall()
-    for inte in row:
-        print(inte)
+    c.close()
+    db.close()
