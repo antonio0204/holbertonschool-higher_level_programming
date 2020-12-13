@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 '''
-    run MySQLdb
+    MySQLdb
 '''
 if __name__ == "__main__":
+
     import sys
     import MySQLdb
 
@@ -13,6 +14,5 @@ if __name__ == "__main__":
                 ORDER BY states.id ASC""")
     for row in c.fetchall():
         print(row)
-
     c.close()
     db.close()
