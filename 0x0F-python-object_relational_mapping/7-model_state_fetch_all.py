@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Write a script that lists all State
+"""Write a script that lists all 
 """
 import sys
 from model_state import Base, State
