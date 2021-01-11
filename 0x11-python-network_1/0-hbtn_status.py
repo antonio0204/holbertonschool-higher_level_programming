@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Write a script that fetches https://intranet.hbtn.io/status"""
+""" Write a script that fetches"""
 import urllib.request
 
 
